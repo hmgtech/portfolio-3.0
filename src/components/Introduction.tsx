@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Rocket, ChevronDown } from 'lucide-react';
-import SpaceshipCanvas from './SpaceshipCanvas'; // Import this at the top
+import SpaceshipCanvas from './SpaceshipCanvas';
+import Typewriter from './Typewriter';
 
 
 const Introduction: React.FC = () => {
@@ -67,29 +68,37 @@ const Introduction: React.FC = () => {
                   Hitesh Gupta
                 </span>
               </h1>
+              <div className="text-xl opacity-0 animate-[fadeIn_0.5s_ease-out_0.5s_forwards]">
+                <Typewriter 
+                  words={[
+                    "Software Developer",
+                    "AI Enthusiast",
+                    "Blogger"
+                  ]} 
+                />
+              </div>
             </div>
             
             <p className="text-xl text-gray-300 leading-relaxed opacity-0 animate-[fadeIn_0.5s_ease-out_0.6s_forwards]">
               Join me on an interstellar journey through my portfolio, where each scroll reveals new dimensions of creativity and innovation.
             </p>
             
-            <div className="flex gap-6 opacity-0 animate-[fadeIn_0.5s_ease-out_0.8s_forwards]">
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-6 opacity-0 animate-[fadeIn_0.5s_ease-out_0.8s_forwards]">
               <button 
                 onClick={handleBeginJourneyClick}
-                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg shadow-purple-500/30 flex items-center space-x-3 group"
+                className="w-full sm:w-auto px-4 py-2 sm:px-8 sm:py-4 text-sm sm:text-base bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg shadow-purple-500/30 flex items-center justify-center space-x-2 sm:space-x-3 group"
               >
                 <span>Begin Journey</span>
-                <Rocket size={18} className="transform rotate-90 group-hover:translate-x-1 transition-transform" />
+                <Rocket size={16} className="transform rotate-90 group-hover:translate-x-1 transition-transform" />
               </button>
               
               <button 
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="px-8 py-4 border border-purple-500/30 rounded-full text-white font-medium hover:bg-purple-500/10 transition-all duration-300 flex items-center space-x-3"
+                className="w-full sm:w-auto px-4 py-2 sm:px-8 sm:py-4 text-sm sm:text-base border border-purple-500/30 rounded-full text-white font-medium hover:bg-purple-500/10 transition-all duration-300 flex items-center justify-center space-x-2 sm:space-x-3"
               >
                 <span>Contact Me</span>
-                <ChevronDown size={18} className="animate-bounce" />
+                <ChevronDown size={16} className="animate-bounce" />
               </button>
-              
             </div>
           </div>
           
