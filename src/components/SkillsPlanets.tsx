@@ -169,10 +169,10 @@ const SkillsPlanets: React.FC = () => {
 
         <div ref={containerRef} className="relative h-[500px] md:h-[600px] mx-auto max-w-[600px]">
           {/* Central sun */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 md:w-20 h-16 md:h-20 rounded-full bg-gradient-to-r from-yellow-300 to-orange-500 flex items-center justify-center z-20 animate-pulse shadow-[0_0_60px] shadow-orange-500/50">
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 md:w-20 h-16 md:h-20 rounded-full bg-gradient-to-r from-yellow-300 to-orange-500 flex items-center justify-center z-0 animate-pulse shadow-[0_0_60px] shadow-orange-500/50">
             <div className="text-white text-center">
-              <div className="font-bold text-xs md:text-sm">Core</div>
-              <div className="text-[10px] md:text-xs">Skills</div>
+              <div className="font-bold text-lg md:text-lg">Core</div>
+              <div className="text-base md:text-md">Skills</div>
             </div>
           </div>
 

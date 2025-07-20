@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Rocket } from 'lucide-react';
 import Header from './components/Header';
 import Introduction from './components/Introduction';
