@@ -1,7 +1,18 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 const ParallaxStars: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -10,121 +21,54 @@ const ParallaxStars: React.FC = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Set canvas size
-    const setCanvasSize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    setCanvasSize();
-    window.addEventListener('resize', setCanvasSize);
+    const stars: { x: number; y: number; size: number; speed: number }[] = [];
+    
+    // Adjust star parameters based on device
+    const starCount = isMobile ? 100 : 200;
+    const maxStarSize = isMobile ? 1.5 : 2;
 
     // Create stars
-    const stars = Array.from({ length: 200 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      size: Math.random() * 2 + 1,
-      opacity: Math.random() * 0.5 + 0.3
-    }));
-
-    // Create comets
-    const comets = Array.from({ length: 3 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      speed: Math.random() * 2 + 1,
-      angle: Math.random() * Math.PI * 2,
-      tail: 50,
-      active: false,
-      timeUntilActive: Math.random() * 5000
-    }));
-
-    const drawStar = (x: number, y: number, size: number, opacity: number) => {
-      if (!ctx) return;
-      ctx.beginPath();
-      ctx.arc(x, y, size, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
-      ctx.fill();
-    };
-
-    const drawComet = (comet: typeof comets[0]) => {
-      if (!ctx) return;
-      
-      // Draw comet tail
-      const gradient = ctx.createLinearGradient(
-        comet.x,
-        comet.y,
-        comet.x - Math.cos(comet.angle) * comet.tail,
-        comet.y - Math.sin(comet.angle) * comet.tail
-      );
-      gradient.addColorStop(0, 'rgba(255, 255, 255, 0.8)');
-      gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
-      
-      ctx.beginPath();
-      ctx.moveTo(comet.x, comet.y);
-      ctx.lineTo(
-        comet.x - Math.cos(comet.angle) * comet.tail,
-        comet.y - Math.sin(comet.angle) * comet.tail
-      );
-      ctx.strokeStyle = gradient;
-      ctx.lineWidth = 2;
-      ctx.stroke();
-      
-      // Draw comet head
-      ctx.beginPath();
-      ctx.arc(comet.x, comet.y, 2, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
-      ctx.fill();
-    };
+    for (let i = 0; i < starCount; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * maxStarSize,
+        speed: Math.random() * 0.3 + 0.1,
+      });
+    }
 
     const animate = () => {
-      if (!ctx || !canvas) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Draw stars
-      stars.forEach(star => {
-        drawStar(star.x, star.y, star.size, star.opacity);
-      });
+      stars.forEach((star) => {
+        ctx.beginPath();
+        ctx.fillStyle = 'white';
+        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+        ctx.fill();
 
-      // Update and draw comets
-      comets.forEach(comet => {
-        if (!comet.active) {
-          comet.timeUntilActive -= 16;
-          if (comet.timeUntilActive <= 0) {
-            comet.active = true;
-            comet.x = -50;
-            comet.y = Math.random() * canvas.height;
-            comet.angle = Math.PI * 0.15;
-          }
-          return;
-        }
-
-        comet.x += Math.cos(comet.angle) * comet.speed * 5;
-        comet.y += Math.sin(comet.angle) * comet.speed * 5;
-
-        if (comet.x > canvas.width + 100 || comet.y > canvas.height + 100 || comet.y < -100) {
-          comet.active = false;
-          comet.timeUntilActive = Math.random() * 5000;
-        } else {
-          drawComet(comet);
+        star.y += star.speed;
+        if (star.y > canvas.height) {
+          star.y = 0;
+          star.x = Math.random() * canvas.width;
         }
       });
 
       requestAnimationFrame(animate);
     };
 
-    animate();
-
-    return () => {
-      window.removeEventListener('resize', setCanvasSize);
+    const resize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
     };
-  }, []);
 
-  return (
-    <canvas
-      ref={canvasRef}
-      className="fixed inset-0 z-0"
-      style={{ background: 'transparent' }}
-    />
-  );
+    resize();
+    animate();
+    window.addEventListener('resize', resize);
+
+    return () => window.removeEventListener('resize', resize);
+  }, [isMobile]);
+
+  return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none" />;
 };
 
 export default ParallaxStars;
