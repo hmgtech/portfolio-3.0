@@ -1,11 +1,12 @@
+// components/Spaceship.tsx
 import React, { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 
 export function Spaceship() {
-  const group = useRef<THREE.Group>();
-  const { nodes, materials } = useGLTF('/spaceship/scene.gltf') as any;
+  const group = useRef<THREE.Group>(null);
+  const { scene } = useGLTF('/models/spaceship.glb') as any;
 
   useFrame((state) => {
     if (group.current) {
@@ -15,24 +16,7 @@ export function Spaceship() {
     }
   });
 
-  return (
-    <group ref={group} dispose={null} scale={0.5}>
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Cube.geometry}
-        material={materials.Material}
-      >
-        <meshStandardMaterial
-          color="#4a9eff"
-          metalness={0.8}
-          roughness={0.2}
-          emissive="#0066ff"
-          emissiveIntensity={0.5}
-        />
-      </mesh>
-    </group>
-  );
+  return <primitive ref={group} object={scene} scale={0.09} />;
 }
 
-useGLTF.preload('/spaceship/scene.gltf');
+useGLTF.preload('/models/spaceship.glb');

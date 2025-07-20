@@ -133,7 +133,7 @@ function App() {
       className="relative min-h-screen bg-black text-white overflow-hidden"
     >
       <CursorEffect />
-      {showWelcome && <WelcomeDialog />}
+      {showWelcome && <WelcomeDialog onClose={() => setShowWelcome(false)} />}
       <ParallaxStars />
 
       <div
@@ -152,14 +152,14 @@ function App() {
       <div className="relative z-10">
         <Introduction />
         <SkillsPlanets />
+        <Education />
+        <WorkExperience />
         <Technologies />
         {/* <ProjectsStations /> */}
-        <WorkExperience />
-        <WebProjects />
         <TechProjects />
+        <WebProjects />
         <Certificates />
         <Publications />
-        <Education />
         <SocialLinks />
         <Contact />
       </div>

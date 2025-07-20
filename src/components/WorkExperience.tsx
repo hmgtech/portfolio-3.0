@@ -12,6 +12,22 @@ interface Experience {
 const WorkExperience: React.FC = () => {
   const experiences: Experience[] = [
     {
+      id: 'siemens',
+      company: 'Siemens',
+      role: 'Software Developer - AI',
+      period: 'September 2024 - Current',
+      achievements: [
+          "Contributed to an innovative Retrieval-Augmented Generation system integrating advanced data pipelines, vector embeddings, and large language models, enabling data retrieval.",
+          "Built FastAPI endpoints to improve front-end and AI model communication.",
+          "Streamlined DevOps with Jenkins for automated CI/CD pipelines.",
+          "Optimized AI systems and APIs for better performance and scalability.",
+          "Developed and optimized React components for AI-powered app UIs.",
+          "Participated in code reviews and promoted teamwork within the dev team.",
+          "Skills: RAG, React, FastAPI, Jenkins, LLM, DevOps, AI, Collaboration"
+      ]
+
+    },
+    {
       id: 'manentia',
       company: 'Manentia AI',
       role: 'Software Engineer [ML OPS]',
@@ -21,7 +37,8 @@ const WorkExperience: React.FC = () => {
         'Developed Django APIs integrated with machine learning for medical imaging, reducing response time by 15% through caching and indexing',
         'Decreased React frontend load time by 20% using code-splitting and lazy loading techniques',
         'Implemented AWS CodePipeline and Lambda instances, reducing downtime by 25% and server costs by 10%',
-        'Processed DICOM medical data with 98% accuracy using PyTorch and TensorFlow ML models'
+        'Processed DICOM medical data with 98% accuracy using PyTorch and TensorFlow ML models',
+        "Skills: Microservices (Python, Docker), RESTful APIs, Database Optimization (PostgreSQL), React Optimization, AWS, Leadership, Communication"
       ]
     },
     {
@@ -33,7 +50,8 @@ const WorkExperience: React.FC = () => {
         'Reduced load time for Angular project using Pure Pipe, Preloading modules, and lazy loading by 20%',
         'Improved API latency in NodeJS and Django by 15% using async operations and database caching',
         'Developed advanced web scrapers that improved data-driven decision-making for clients',
-        'Delivered quality software solutions praised by clients'
+        'Delivered quality software solutions praised by clients',
+        "Skills: Django, NodeJS, ExpressJS, React, Linux, Data Processing and Analysis, Communication, Innovative, Teamwork"
       ]
     }
   ];

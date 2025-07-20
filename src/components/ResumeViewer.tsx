@@ -39,11 +39,11 @@ const ResumeViewer: React.FC<ResumeViewerProps> = ({ onClose }) => {
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 backdrop-blur-lg"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 backdrop-blur-lg p-4 sm:p-6"
       onClick={(e) => e.stopPropagation()}
       onWheel={handleWheel}
     >
-      <div className="relative w-full max-w-4xl mx-4 bg-gray-900 rounded-xl shadow-2xl animate-fade-in">
+      <div className="relative w-full h-full max-w-5xl bg-gray-900 rounded-xl shadow-2xl animate-fade-in overflow-hidden">
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-gray-800">
           <h2 className="text-xl font-bold text-white">Resume</h2>
@@ -67,20 +67,20 @@ const ResumeViewer: React.FC<ResumeViewerProps> = ({ onClose }) => {
 
         {/* PDF Viewer */}
         <div 
-          className="relative p-4 overflow-auto max-h-[80vh] custom-scrollbar"
+          className="relative h-[calc(100%-5rem)] overflow-auto custom-scrollbar"
           onWheel={(e) => e.stopPropagation()}
         >
           <Document
             file={pdfUrl}
             onLoadSuccess={onDocumentLoadSuccess}
-            className="flex flex-col items-center"
+            className="flex flex-col items-center p-4"
           >
             {Array.from(new Array(numPages), (_, index) => (
               <Page
                 key={`page_${index + 1}`}
                 pageNumber={index + 1}
                 scale={scale}
-                className="mb-4 w-full max-w-full"
+                className="mb-4 shadow-xl"
                 renderAnnotationLayer={false}
                 renderTextLayer={false}
               />

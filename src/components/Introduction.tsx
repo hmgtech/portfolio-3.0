@@ -1,5 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Rocket, ChevronDown } from 'lucide-react';
+import SpaceshipCanvas from './SpaceshipCanvas'; // Import this at the top
+
 
 const Introduction: React.FC = () => {
   const rocketRef = useRef<HTMLDivElement>(null);
@@ -60,9 +62,9 @@ const Introduction: React.FC = () => {
                 Welcome to my universe
               </h2>
               <h1 className="text-5xl md:text-7xl font-bold leading-tight opacity-0 animate-[fadeIn_0.5s_ease-out_0.4s_forwards]">
-                <span className="block">Embark on a</span>
+                <span className="block">Crafted by</span>
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 animate-gradient">
-                  Space Odyssey
+                  Hitesh Gupta
                 </span>
               </h1>
             </div>
@@ -92,82 +94,10 @@ const Introduction: React.FC = () => {
           </div>
           
           <div className="hidden md:block relative opacity-0 animate-[fadeIn_0.5s_ease-out_1s_forwards]">
-            <div className="flex justify-center">
-              <div
-                ref={rocketRef}
-                className="relative w-64 h-64 flex items-center justify-center transition-all duration-500 hover:scale-110 cursor-pointer"
-                onMouseEnter={() => setIsBoostActive(true)}
-                onMouseLeave={() => setIsBoostActive(false)}
-              >
-                {/* Boost particles */}
-                <div className="absolute left-1/2 bottom-0 -translate-x-1/2 w-32 h-48 overflow-hidden">
-                  {[...Array(30)].map((_, i) => (
-                    <div
-                      key={i}
-                      className={`absolute bottom-0 w-2 h-2 rounded-full ${
-                        i % 3 === 0 ? 'bg-orange-500' : i % 3 === 1 ? 'bg-yellow-400' : 'bg-red-500'
-                      }`}
-                      style={{
-                        left: `${Math.random() * 100}%`,
-                        transform: `scale(${Math.random() * 0.5 + 0.5})`,
-                        opacity: isBoostActive ? 1 : 0.5,
-                        animation: `particle ${Math.random() * 1 + 0.5}s linear infinite`,
-                        animationPlayState: isBoostActive ? 'running' : 'paused',
-                      }}
-                    />
-                  ))}
-                </div>
-
-                {/* Glowing circles */}
-                <div className={`absolute w-48 h-48 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 transition-all duration-300 ${isBoostActive ? 'animate-pulse-fast scale-110' : 'animate-pulse'}`}></div>
-                <div 
-                  className={`absolute w-32 h-32 rounded-full bg-gradient-to-r from-blue-500/30 to-purple-500/30 transition-all duration-300 ${isBoostActive ? 'animate-pulse-fast scale-110' : 'animate-pulse'}`}
-                  style={{ animationDelay: '0.5s' }}
-                ></div>
-
-                {/* Rocket */}
-                <Rocket 
-                  size={100} 
-                  className={`text-white transform relative z-10 transition-all duration-300 ${
-                    isBoostActive ? 'scale-110 animate-shake' : 'animate-hover'
-                  }`}
-                />
-
-                {/* Boost trail */}
-                <div 
-                  style={{ marginLeft: "-170px" }}
-                  className={`absolute transform rotate-[45deg] translate-x-3 bottom-[-10px] w-16 h-32 bg-gradient-to-t from-orange-500 via-yellow-400 to-transparent transition-all duration-300 blur-md rounded-full ${
-                    isBoostActive 
-                      ? 'opacity-90 animate-flicker-fast scale-y-125' 
-                      : 'opacity-70 animate-flicker'
-                  }`}
-                />
-
-                {/* Star burst effect */}
-                <div className={`absolute inset-0 transition-opacity duration-300 ${isBoostActive ? 'opacity-100' : 'opacity-0'}`}>
-                  {[...Array(8)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="absolute w-1 h-16 bg-gradient-to-t from-yellow-500 to-transparent"
-                      style={{
-                        left: '50%',
-                        top: '50%',
-                        transform: `rotate(${i * 45}deg)`,
-                        transformOrigin: 'center',
-                        animation: 'starBurst 2s linear infinite',
-                        animationDelay: `${i * 0.2}s`,
-                      }}
-                    />
-                  ))}
-                </div>
-
-                {/* Decorative elements */}
-                <div className={`absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-full transition-all duration-300 ${
-                  isBoostActive ? 'animate-pulse-fast scale-110' : 'animate-pulse-slow'
-                }`}></div>
-              </div>
-            </div>
-          </div>
+  <div className="relative w-full h-96 md:h-[500px]">
+    <SpaceshipCanvas />
+  </div>
+</div>
         </div>
       </div>
 

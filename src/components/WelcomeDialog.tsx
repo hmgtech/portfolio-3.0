@@ -46,7 +46,11 @@ function NumberRoll({ value, duration = 2000 }: { value: number; duration?: numb
   return <span>{displayValue.toFixed(decimals)}</span>;
 }
 
-export function WelcomeDialog() {
+interface WelcomeDialogProps {
+  onClose: () => void;
+}
+
+export function WelcomeDialog({ onClose }: WelcomeDialogProps) {
   const [isOpen, setIsOpen] = useState(true);
   const [step, setStep] = useState(1);
   const [showCoordinates, setShowCoordinates] = useState(false);
@@ -393,11 +397,20 @@ export function WelcomeDialog() {
     }
   };
 
+  const handleContainerClick = (e: React.MouseEvent) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-      <div className="bg-gray-900 rounded-lg shadow-xl shadow-purple-500/20 max-w-md w-full p-6 relative border border-gray-800 cosmic-card">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75 backdrop-blur-sm"
+      onClick={handleContainerClick}
+    >
+      <div className="bg-gray-900 p-6 rounded-xl shadow-xl max-w-md mx-4 relative animate-fade-in">
         <button
           onClick={() => setIsOpen(false)}
           className="absolute top-4 right-4 text-gray-500 hover:text-gray-400"

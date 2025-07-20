@@ -79,7 +79,7 @@ const TechProjects: React.FC = () => {
         { name: "numpy", color: "green-text-gradient" },
         { name: "threading", color: "pink-text-gradient" },
       ],
-      image: "https://www.futurebeeai.com/assets/img/Blog/AI-based-Driver-Monitoring-System.webp",
+      image: "https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/blogs/22606/images/5481e13-3da0-b8e5-f87f-a5ff1b6da72c_eyeSight_-_Driver_Monitoring_Driver_Asleep_1.jpeg",
       source_code_link: "https://github.com/hmgtech/Drowsiness-Detection",
     }
   ];
