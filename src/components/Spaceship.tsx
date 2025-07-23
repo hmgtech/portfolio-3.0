@@ -16,7 +16,7 @@ export function Spaceship() {
     }
   });
 
-  return <primitive ref={group} object={scene} scale={0.09} />;
+  return <primitive ref={group} object={scene} scale={0.1} />;
 }
 
 useGLTF.preload('/models/spaceship.glb');

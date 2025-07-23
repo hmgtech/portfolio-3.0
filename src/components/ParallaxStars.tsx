@@ -21,6 +21,10 @@ const ParallaxStars: React.FC = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    // Set initial canvas size
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
     const stars: { x: number; y: number; size: number; speed: number }[] = [];
     
     // Adjust star parameters based on device
@@ -57,18 +61,43 @@ const ParallaxStars: React.FC = () => {
     };
 
     const resize = () => {
+      // Store existing stars positions as percentages
+      const starsPositions = stars.map(star => ({
+        xPercent: star.x / canvas.width,
+        yPercent: star.y / canvas.height,
+        size: star.size,
+        speed: star.speed
+      }));
+
+      // Update canvas dimensions
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+
+      // Recalculate star positions based on new dimensions
+      stars.forEach((star, index) => {
+        star.x = starsPositions[index].xPercent * canvas.width;
+        star.y = starsPositions[index].yPercent * canvas.height;
+      });
     };
 
     resize();
     animate();
-    window.addEventListener('resize', resize);
 
-    return () => window.removeEventListener('resize', resize);
+    // Debounce resize handler
+    let resizeTimeout: NodeJS.Timeout;
+    const handleResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(resize, 100);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      clearTimeout(resizeTimeout);
+    };
   }, [isMobile]);
 
-  return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none" />;
+  return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-0" />;
 };
 
 export default ParallaxStars;

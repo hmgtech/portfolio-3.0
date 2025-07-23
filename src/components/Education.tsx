@@ -54,7 +54,7 @@ const Education: React.FC = () => {
       id: 'edu1',
       degree: 'Master of Applied Computer Science',
       institution: 'Dalhousie University',
-      year: '2033-2024',
+      year: '2023-2024',
       location: 'Halifax, Canada',
       description:
         'Specialized in Artificial Intelligence and Machine Learning with a focus on neural networks and computer vision.',

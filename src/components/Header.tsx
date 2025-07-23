@@ -57,7 +57,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
             <div className="flex items-center space-x-2">
               <Rocket size={24} className="text-blue-400" />
               <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
-                Space Odyssey
+                Hitesh Gupta | Space Odyssey
               </span>
             </div>
 
