@@ -1,4 +1,59 @@
- React + TypeScript + Vite
+# React Portfolio with Vite
+
+This project is built using React + TypeScript + Vite with Firebase hosting.
+
+## Development Commands
+
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+## Firebase Deployment
+
+1. Install Firebase CLI globally:
+```bash
+npm install -g firebase-tools
+```
+
+2. Login to Firebase:
+```bash
+firebase login
+```
+
+3. Initialize Firebase (run once):
+```bash
+firebase init
+```
+Select the following options:
+- Choose 'Hosting'
+- Select your project or create a new one
+- Set 'dist' as your public directory
+- Configure as single-page app: Yes
+- Don't overwrite index.html: No
+
+4. Deploy to Firebase:
+```bash
+firebase deploy
+```
+
+## Quick Deploy
+
+After initial setup, you can use these commands to build and deploy:
+```bash
+npm run build && firebase deploy
+```
+
+React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
