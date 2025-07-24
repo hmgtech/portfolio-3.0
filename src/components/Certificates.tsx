@@ -25,7 +25,7 @@ const Certificates: React.FC = () => {
         { name: 'kubernetes', color: 'green-text-gradient' },
         { name: 'ml', color: 'pink-text-gradient' },
       ],
-      image: 'https://guptahitesh.me/assets/gcp-59ee9406.png',
+      image: 'https://v2.guptahitesh.me/assets/gcp-59ee9406.png',
       source_code_link:
         'https://www.cloudskillsboost.google/public_profiles/5b3e1f00-4f5b-400b-b255-9c2c3d996a0e',
     },
@@ -38,7 +38,7 @@ const Certificates: React.FC = () => {
         { name: 'oop', color: 'pink-text-gradient' },
         { name: 'coding', color: 'green-text-gradient' },
       ],
-      image: 'https://guptahitesh.me/assets/python-84016ead.jpg',
+      image: 'https://v2.guptahitesh.me/assets/python-84016ead.jpg',
       source_code_link:
         'https://www.udemy.com/certificate/UC-bfee6a9f-5c08-45a1-8a77-e2d618f54c39/',
     },
@@ -51,7 +51,7 @@ const Certificates: React.FC = () => {
         { name: 'numpy', color: 'green-text-gradient' },
         { name: 'cnn', color: 'pink-text-gradient' },
       ],
-      image: 'https://guptahitesh.me/assets/cnn-9639aea9.png',
+      image: 'https://v2.guptahitesh.me/assets/cnn-9639aea9.png',
       source_code_link:
         'https://www.coursera.org/account/accomplishments/certificate/WZWSXT6DT6FD',
     },
@@ -64,7 +64,7 @@ const Certificates: React.FC = () => {
         { name: 'ml', color: 'green-text-gradient' },
         { name: 'image-processing', color: 'pink-text-gradient' },
       ],
-      image: 'https://guptahitesh.me/assets/aws-08b1d163.png',
+      image: 'https://v2.guptahitesh.me/assets/aws-08b1d163.png',
       source_code_link:
         'https://www.coursera.org/account/accomplishments/certificate/SYD4ACJ5KCFC',
     },
@@ -76,7 +76,7 @@ const Certificates: React.FC = () => {
         { name: 'nlp', color: 'blue-text-gradient' },
         { name: 'rnn', color: 'green-text-gradient' },
       ],
-      image: 'https://guptahitesh.me/assets/NLP-75408f8a.png',
+      image: 'https://v2.guptahitesh.me/assets/NLP-75408f8a.png',
       source_code_link:
         'https://www.coursera.org/account/accomplishments/certificate/RM48DS6MR3WL',
     },
@@ -88,7 +88,7 @@ const Certificates: React.FC = () => {
         { name: 'ai', color: 'blue-text-gradient' },
         { name: 'medical-diagnosis', color: 'green-text-gradient' },
       ],
-      image: 'https://guptahitesh.me/assets/AIInMedical-d2ae4929.png',
+      image: 'https://v2.guptahitesh.me/assets/AIInMedical-d2ae4929.png',
       source_code_link:
         'https://www.coursera.org/account/accomplishments/certificate/RM48DS6MR3WL',
     },

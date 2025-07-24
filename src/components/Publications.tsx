@@ -26,7 +26,7 @@ const Publications: React.FC = () => {
         { name: 'ml', color: 'pink-text-gradient' },
       ],
       image:
-        'https://guptahitesh.me/assets/CleanlinessAutomationYOLOv3-bd0dc769.png',
+        'https://v2.guptahitesh.me/assets/CleanlinessAutomationYOLOv3-bd0dc769.png',
       source_code_link: 'https://ieeexplore.ieee.org/document/9418056',
     },
   ];
