@@ -17,6 +17,27 @@ interface Project {
 const TechProjects: React.FC = () => {
   const projects: Project[] = [
     {
+    name: "AskHim",
+    description:
+      "LLM-powered codebase assistant with ChromaDB embeddings and semantic search.",
+    tags: [
+      {
+        name: "LLM",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Embeddings",
+        color: "green-text-gradient",
+      },
+      {
+        name: "FastAPI",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: "https://raw.githubusercontent.com/hmgtech/askhim/refs/heads/master/media/UI.png",
+    source_code_link: "https://github.com/hmgtech/askhim",
+  },
+  {
       name: "QuickHire",
       description: "QuickHire, an online marketplace where people can offer their skills and services for others to hire or buy.",
       tags: [
@@ -27,17 +48,17 @@ const TechProjects: React.FC = () => {
       image: "https://raw.githubusercontent.com/hmgtech/quickhire/refs/heads/master/index.png",
       source_code_link: "https://github.com/hmgtech/quickhire",
     },
-    {
-      name: "Dal Community App",
-      description: "The dynamic mobile app designed to unite and empower the Dalhousie University community.",
-      tags: [
-        { name: "kotlin", color: "blue-text-gradient" },
-        { name: "firebase", color: "green-text-gradient" },
-        { name: "mobile-app", color: "pink-text-gradient" },
-      ],
-      image: "https://raw.githubusercontent.com/hmgtech/dal-community/master/img/Dal%20Community%20Mobile%20App24.png",
-      source_code_link: "https://github.com/hmgtech/dal-community",
-    },
+    // {
+    //   name: "Dal Community App",
+    //   description: "The dynamic mobile app designed to unite and empower the Dalhousie University community.",
+    //   tags: [
+    //     { name: "kotlin", color: "blue-text-gradient" },
+    //     { name: "firebase", color: "green-text-gradient" },
+    //     { name: "mobile-app", color: "pink-text-gradient" },
+    //   ],
+    //   image: "https://raw.githubusercontent.com/hmgtech/dal-community/master/img/Dal%20Community%20Mobile%20App24.png",
+    //   source_code_link: "https://github.com/hmgtech/dal-community",
+    // },
     {
       name: "Agile Track",
       description: "A robust task tracker project management app, utilizing React for the frontend, Flask for the backend, and MySQL for data storage.",
